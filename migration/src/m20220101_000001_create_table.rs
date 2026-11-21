@@ -12,7 +12,7 @@ impl MigrationTrait for Migration {
                 Table::create()
                     .table(Users::Table)
                     .if_not_exists()
-                    .col(pk_auto(Users::Id))
+                    .col(pk_uuid(Users::Id).default(Expr::cust("gen_random_uuid()")))
                     .col(string_uniq(Users::Username))
                     .col(string_uniq(Users::Email))
                     .col(string_null(Users::Password))
@@ -40,6 +40,8 @@ impl MigrationTrait for Migration {
                     .to_owned(),
             )
             .await?;
+
+
 
         Ok(())
     }

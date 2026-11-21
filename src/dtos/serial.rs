@@ -1,19 +1,36 @@
 use serde::{Deserialize, Serialize};
+use uuid::Uuid;
 
 #[derive(Debug, Deserialize)]
-pub struct AuthForm {
+pub struct SignUpDto {
+    pub username: String,
     pub email: String,
-    pub password: Option<String>,
-    pub username: Option<String>,
+    pub password: String,
     pub phone: Option<String>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct SignInDto {
+    pub email: String,
+    pub password: String,
+}
+
+#[derive(Debug, Serialize)]
+pub struct UserResponseDto {
+    pub id: Uuid,
+    pub username: String,
+    pub email: String,
+    pub phone: Option<String>,
+    pub avatar_url: Option<String>,
+    pub auth_provider: String, // "email" or "google"
 }
 
 #[derive(Debug, Serialize)]
 pub struct AuthResponse {
     pub success: bool,
     pub message: String,
-    pub user_id: Option<i32>,
-    pub email: Option<String>,
+    pub token: Option<String>,
+    pub user: Option<UserResponseDto>,
 }
 
 #[derive(Debug, Deserialize)]
