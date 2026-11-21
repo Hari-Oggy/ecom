@@ -1,0 +1,24 @@
+# Rust / Cargo build artifacts
+/target/
+**/target/
+**/*.rs.bk
+Cargo.lock
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Docker volumes / local data
+postgres_data/
