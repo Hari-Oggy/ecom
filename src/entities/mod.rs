@@ -4,3 +4,5 @@ pub mod prelude;
 
 pub mod super_admins;
 pub mod users;
+
+seaography::register_entity_modules!([super_admins, users,]);

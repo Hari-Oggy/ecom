@@ -1,0 +1,7 @@
+title = "Cloth E-Commerce Dashboard"
+subtitle = "Manage customers, administrators, and store operations."
+
+[[info.card]]
+title = "Cloth E-Commerce Store"
+description = "Administrative management portal for products, orders, customers, and super admins."
+link = "http://localhost:3000/admin"

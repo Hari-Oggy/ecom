@@ -1,4 +1,4 @@
-use sea_orm_migration::{prelude::*, schema::*};
+use sea_orm_migration::prelude::*;
 
 pub struct Migration;
 
@@ -19,5 +19,8 @@ impl MigrationTrait for Migration {
         Ok(())
     }
 }
+
+
+
 
 

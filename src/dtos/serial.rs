@@ -37,6 +37,7 @@ pub struct AuthResponse {
 pub struct GoogleUserInfo {
     pub id: String,
     pub email: String,
+    #[allow(dead_code)]
     pub verified_email: Option<bool>,
     pub name: Option<String>,
     pub picture: Option<String>,

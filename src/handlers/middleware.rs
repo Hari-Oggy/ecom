@@ -7,7 +7,7 @@ use axum::{
 };
 use std::net::SocketAddr;
 use tower_sessions::Session;
-use tracing::{warn, info};
+use tracing::warn;
 use uuid::Uuid;
 
 use crate::{
@@ -31,7 +31,7 @@ pub async fn auth_guard(
     mut request: Request,
     next: Next,
 ) -> Result<Response, (StatusCode, Json<AuthResponse>)> {
-    let current_ip = addr.ip().to_string();
+    let _current_ip = addr.ip().to_string();
     let current_ua = request
         .headers()
         .get("user-agent")
@@ -45,7 +45,7 @@ pub async fn auth_guard(
     if let Some(user_id) = session_user_id {
         // --- Anti-Session Hijacking Verification ---
         let saved_ua: Option<String> = session.get(SESSION_USER_AGENT_KEY).await.unwrap_or(None);
-        let saved_ip: Option<String> = session.get(SESSION_IP_KEY).await.unwrap_or(None);
+        let _saved_ip: Option<String> = session.get(SESSION_IP_KEY).await.unwrap_or(None);
 
         if let Some(ref expected_ua) = saved_ua {
             if expected_ua != &current_ua {

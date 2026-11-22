@@ -22,3 +22,6 @@ Thumbs.db
 
 # Docker volumes / local data
 postgres_data/
+sea-orm_migrationfiles_entity_cmd.txt
+notes/dev-prod-alter-table.md
+assets/
